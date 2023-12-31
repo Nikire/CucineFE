@@ -6,7 +6,7 @@ import img1 from "../../../assets/imgs/img1.png";
 import img2 from "../../../assets/imgs/img2.png";
 import img3 from "../../../assets/imgs/img3.png";
 
-const Tutorial = () => {
+const Tutorial = ({ navigation }) => {
   const fetchFonts = async () => {
     try {
       await Font.loadAsync({
@@ -84,7 +84,7 @@ const Tutorial = () => {
         </Text>
       ),
       img: img3,
-    },
+    }
   ];
 
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -150,9 +150,8 @@ const Tutorial = () => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            if (currentStep < wizard.length - 1) {
-              setCurrentStep(currentStep + 1);
-            }
+            if (currentStep < wizard.length - 1 && wizard.length === 3) setCurrentStep(currentStep + 1);
+            else navigation.navigate("Cocinar", { name: "Cocinar" })
           }}
         >
           <Text style={styles.buttonText}>
