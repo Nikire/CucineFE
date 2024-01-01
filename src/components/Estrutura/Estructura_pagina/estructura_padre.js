@@ -1,7 +1,6 @@
 import { View } from "react-native-animatable";
-import { stylesCocinar } from "../../../styles/General/Estilos";
-const estructuraPadre = ({ children }) => {
-  return <View style={stylesCocinar.container}>{children}</View>
+const estructuraPadre = ({ children, style }) => {
+  return <View style={style}>{children}</View>
 }
 
 export default estructuraPadre;

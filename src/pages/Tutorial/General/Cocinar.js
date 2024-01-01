@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, Animated } from "react-native";
-import { stylesCocinar } from "../../../styles/General/Estilos";
+import { stylesCocinar } from "../../../styles/Cocinar";
+import { stylesGeneral } from "../../../styles/General/General";
 import pelotaIzquierda from "../../../../assets/imgs/Cocinar/Ellipse_15.png";
 import pelotaMedio from "../../../../assets/imgs/Cocinar/Ellipse_16.png";
 import pelotaDerecha from "../../../../assets/imgs/Cocinar/Ellipse_17.png";
@@ -55,15 +56,15 @@ export default Cocinar = () => {
   </View>)
 
   return (
-    <EstructuraPadre>
-      <EstructuraHeader>
+    <EstructuraPadre style={stylesGeneral.container}>
+      <EstructuraHeader style={stylesGeneral.container_header}>
         <Animated.Image source={pelotaIzquierda} style={{ ...stylesCocinar.img1, transform: [{ scale: scaleAnim }] }} />
         <Animated.Image source={pelotaMedio} style={{ ...stylesCocinar.img2, transform: [{ scale: scaleAnim }] }} />
         <Animated.Image source={pelotaDerecha} style={{ ...stylesCocinar.img3, transform: [{ scale: scaleAnim }] }} />
         <Text style={stylesCocinar.titulo}>¿Qué querés cocinar?</Text>
         <Text style={stylesCocinar.parrafo}>Seleccioná una o mas categorias.</Text>
       </EstructuraHeader>
-      <EstructuraBody>
+      <EstructuraBody style={stylesGeneral.container_body}>
         <View style={stylesCocinar.containerCategorias}>
           <View style={stylesCocinar.containerCategoriasMap}>
             {arrayImagenes.map((value, key) => (
