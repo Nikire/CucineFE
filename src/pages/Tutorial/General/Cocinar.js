@@ -11,6 +11,9 @@ import postre from "../../../../assets/imgs/Cocinar/comidas/postre.png";
 import otros from "../../../../assets/imgs/Cocinar/comidas/otros.png";
 import like from "../../../../assets/imgs/Cocinar/chequeado/check.png";
 import circle from "../../../../assets/imgs/Cocinar/chequeado/Ellipse_20.png";
+import EstructuraPadre from "../../../components/Estrutura/Estructura_pagina/estructura_padre";
+import EstructuraHeader from "../../../components/Estrutura/Estructura_pagina/estructura_header";
+import EstructuraBody from "../../../components/Estrutura/Estructura_pagina/estructura_body";
 
 export default Cocinar = () => {
   const [scaleAnim] = useState(new Animated.Value(1));
@@ -52,15 +55,15 @@ export default Cocinar = () => {
   </View>)
 
   return (
-    <View style={stylesCocinar.container}>
-      <View style={stylesCocinar.containerSuperior}>
+    <EstructuraPadre>
+      <EstructuraHeader>
         <Animated.Image source={pelotaIzquierda} style={{ ...stylesCocinar.img1, transform: [{ scale: scaleAnim }] }} />
         <Animated.Image source={pelotaMedio} style={{ ...stylesCocinar.img2, transform: [{ scale: scaleAnim }] }} />
         <Animated.Image source={pelotaDerecha} style={{ ...stylesCocinar.img3, transform: [{ scale: scaleAnim }] }} />
         <Text style={stylesCocinar.titulo}>¿Qué querés cocinar?</Text>
         <Text style={stylesCocinar.parrafo}>Seleccioná una o mas categorias.</Text>
-      </View>
-      <View style={stylesCocinar.containerInferior}>
+      </EstructuraHeader>
+      <EstructuraBody>
         <View style={stylesCocinar.containerCategorias}>
           <View style={stylesCocinar.containerCategoriasMap}>
             {arrayImagenes.map((value, key) => (
@@ -84,7 +87,7 @@ export default Cocinar = () => {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
-    </View>
+      </EstructuraBody>
+    </EstructuraPadre>
   )
 }
